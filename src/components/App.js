@@ -1,8 +1,24 @@
 import React from 'react';
+import UserCreate from './UserCreate';
 
 class App extends React.Component {
+    state = {language: 'english'}
+    
+    onLanguageChange = (language) => {
+        this.setState({language})
+        console.log('clicked')
+    }
+
     render() {
-        return <div className="ui container">APP</div>
+
+        return (
+        <div className="ui container">
+            <div>Select a language:
+                <i className="flag us" onClick={() => this.onLanguageChange('english')}/>
+                <i className="flag nl" onClick={() => this.onLanguageChange('dutch')}/>
+            </div>
+            <UserCreate />
+        </div>);
     }
 };
 
